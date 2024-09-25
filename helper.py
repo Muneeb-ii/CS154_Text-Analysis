@@ -44,4 +44,4 @@ def create_sentiment_dict(file_path: str) -> dict[str, int]:
     
     return sentiment
 
-sentiment = create_sentiment_dict("sentiment.csv")
+sentiment = create_sentiment_dict("sentiments.csv")
