@@ -1,0 +1,2 @@
+The quick brown fox jumps over the lazy dog.
+This is a classic pangram used in typing exercises. The quick brown fox is swift and clever.
