@@ -255,7 +255,7 @@ Following is an example interaction:
 >> User: The quick brown fox jumps over the lazy dog.
 >> Alex: Please enter the word you want to search for:
 >> User: the
->> Alex: The word 'the' was found at the following positions: [1, 8]
+>> Alex: The word 'the' was found at the following positions: [1, 7]
 ```
 
 ### Menu Options #5-#8: File Operations
