@@ -28,7 +28,31 @@ while(int(user_input)!=9):
         print(f"{'Number of unique words:':<30} {total_unique_words:>02}\n")
 
     elif(int(user_input)==2):
-        print(user_input)
+        user_text: str = input("\033[31m>> Bruno:\033[0m Sure, I can help you analyze the sentiment in your text. What is your text?\n\033[32m>> User: \033[0m")
+        word_list: list[str] = user_text.lower().split(" ")
+        text_length: int = len(word_list)
+        sentiment_counter: int = 0
+        
+        for each_word in word_list:
+            sentiment_counter: int = sentiment_counter + sentiment.get(each_word, 0)
+        
+        sentiment_average = sentiment_counter/text_length
+        
+        if(sentiment_average == 0):
+            print("\033[31m>> Bruno:\033[0m neutral\n")
+        elif(sentiment_average > 0 and sentiment_average < 0.25):
+            print("\033[31m>> Bruno:\033[0m somewhat positive\n")
+        elif(sentiment_average > 0.25 and sentiment_average < 0.5):
+            print("\033[31m>> Bruno:\033[0m positive\n")
+        elif(sentiment_average >= 0.5):
+            print("\033[31m>> Bruno:\033[0m very positive\n")
+        elif(sentiment_average < 0 and sentiment_average > -0.25):
+            print("\033[31m>> Bruno:\033[0m somewhat negative\n")
+        elif(sentiment_average < -0.25 and sentiment_average > -0.5):
+            print("\033[31m>> Bruno:\033[0m negative\n")
+        elif(sentiment_average <= -0.5):
+            print("\033[31m>> Bruno:\033[0m very negative\n")
+        
     elif(int(user_input)==3):
         print(user_input)
     elif(int(user_input)==4):
