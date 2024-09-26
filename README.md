@@ -12,7 +12,8 @@ _Describe the challenges you faced and what you learned_
 ### Resources
 
 1. https://builtin.com/data-science/python-f-string
-
+2. https://www.toppr.com/guides/python-guide/references/methods-and-functions/methods/dictionary/get/python-dictionary-get/#:~:text=You%20can%20access%20the%20values,it%20returns%20a%20default%20value.
+3. https://stackoverflow.com/questions/9285086/access-dict-key-and-return-none-if-doesnt-exist
 
 ### *DO NOT EDIT BELOW THIS LINE*
 ---
