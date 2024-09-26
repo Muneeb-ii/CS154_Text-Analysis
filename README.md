@@ -14,6 +14,7 @@ _Describe the challenges you faced and what you learned_
 1. https://builtin.com/data-science/python-f-string
 2. https://www.toppr.com/guides/python-guide/references/methods-and-functions/methods/dictionary/get/python-dictionary-get/#:~:text=You%20can%20access%20the%20values,it%20returns%20a%20default%20value.
 3. https://stackoverflow.com/questions/9285086/access-dict-key-and-return-none-if-doesnt-exist
+4. https://www.w3schools.com/python/ref_string_maketrans.asp
 
 ### *DO NOT EDIT BELOW THIS LINE*
 ---
@@ -212,7 +213,7 @@ Here is an example interaction
 7: Find similarities between two files
 8: Search for a word in a file
 9: Exit
->> User: 2
+>> User: 3
 >> Alex: Sure, I can help you find similarities between two texts. Please enter the first text.
 >> User: Apple banana cherry
 >> Alex: Please enter the second text.
