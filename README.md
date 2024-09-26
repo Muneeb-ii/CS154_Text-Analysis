@@ -14,7 +14,7 @@ _Describe the challenges you faced and what you learned_
 1. https://builtin.com/data-science/python-f-string
 2. https://www.toppr.com/guides/python-guide/references/methods-and-functions/methods/dictionary/get/python-dictionary-get/#:~:text=You%20can%20access%20the%20values,it%20returns%20a%20default%20value.
 3. https://stackoverflow.com/questions/9285086/access-dict-key-and-return-none-if-doesnt-exist
-4. https://www.w3schools.com/python/ref_string_maketrans.asp
+4. https://sparkbyexamples.com/python/python-remove-multiple-characters-from-string/#:~:text=5.-,Using%20filter()%20and%20join()%20Methods,characters%20into%20a%20new%20string.
 
 ### *DO NOT EDIT BELOW THIS LINE*
 ---
