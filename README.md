@@ -11,7 +11,7 @@ _Describe the challenges you faced and what you learned_
 
 ### Resources
 
-_List the people and resources you used to complete the project_
+1. https://builtin.com/data-science/python-f-string
 
 
 ### *DO NOT EDIT BELOW THIS LINE*
@@ -90,7 +90,7 @@ Note when counting unique characters and words, they should be case-insensitive 
 >> User: How are you doing today? Are you good?
 >> Alex: Here is the analysis
 
-Total number of characters:     39
+Total number of characters:     38
 Number of unique characters:    15
 Total number of words:          08
 Number of unique words:         06
