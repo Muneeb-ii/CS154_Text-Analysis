@@ -54,7 +54,22 @@ while(int(user_input)!=9):
             print("\033[31m>> Bruno:\033[0m very negative\n")
         
     elif(int(user_input)==3):
-        print(user_input)
+        user_text_1: str = input("\033[31m>> Bruno:\033[0m Sure, I can help you find similarities between two texts. Please enter the first text.\n\033[32m>> User: \033[0m")
+        user_text_2: str = input("\033[31m>> Bruno:\033[0m Please enter the second text.\n\033[32m>> User: \033[0m")
+        characters_to_remove = ['!', ',', '.', '?', ':', ';', '-', '_']
+        translation_table = str.maketrans('', '', ''.join(characters_to_remove))
+        user_text_1_removed: list[str] = user_text_1.lower().translate(translation_table).split(" ")
+        user_text_1_set: set[str] = set(user_text_1_removed)
+        user_text_2_removed: list[str] = user_text_2.lower().translate(translation_table).split(" ")
+        user_text_2_set: set[str] = set(user_text_2_removed)
+
+        intersection_set: set[str] = user_text_1_set.intersection(user_text_2_set)
+        union_set: set[str] = user_text_1_set.union(user_text_2_set)
+
+        percent_similar: int = len(intersection_set)*100/len(union_set)
+
+        print(f"\033[31m>> Bruno:\033[0m The two texts are {percent_similar:.2f}% similar. The common words are:\n{intersection_set}")
+        
     elif(int(user_input)==4):
         print(user_input)
     elif(int(user_input)==5):
