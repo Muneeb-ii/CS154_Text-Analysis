@@ -78,22 +78,40 @@ while(int(user_input)!=9):
         user_text_removed: list[str] = user_text.lower().translate(translation_table).split(" ")
         word_position: list[int] = []
 
-        for i in range(0,len(user_text_removed)):
+        for i in range(len(user_text_removed)):
             if(user_text_removed[i]==user_word.lower()):
                 word_position.append(i+1)
             i +=1
-        print(f"\033[31m>> Bruno:\033[0m The word '{user_word.lower()}' was found at the following positions: {word_position}")
-    
-    elif(int(user_input)==5):
-        print(user_input)
+        if(not word_position==[]):
+            print(f"\033[31m>> Bruno:\033[0m The word '{user_word.lower()}' was found at the following positions: {word_position}")
+        else:
+            print("\033[31m>> Bruno:\033[0m The word was not found")
+
+    elif(int(user_input)==5):     
+        print(user_input)   
     elif(int(user_input)==6):
         print(user_input)
     elif(int(user_input)==7):
         print(user_input)
     elif(int(user_input)==8):
-        print(user_input)
+        user_file: str = input("\033[31m>> Bruno:\033[0m Sure, I can help you search for a word in a file. Please enter the filename:\n\033[32m>> User: \033[0m")
+        file_contents: str = get_file_contents(user_file)
+        user_word: str = input("\033[31m>> Bruno:\033[0m Please enter the word you want to search for:\n\033[32m>> User: \033[0m")
+        characters_to_remove = ['!', ',', '.', '?', ':', ';', '-', '_']
+        translation_table = str.maketrans('', '', ''.join(characters_to_remove))
+        file_contents_removed: list[str] = file_contents.lower().translate(translation_table).split(" ")
+        word_position: list[int] = []
+
+        for i in range(len(file_contents_removed)):
+            if(file_contents_removed[i]==user_word.lower()):
+                word_position.append(i+1)
+            i +=1
+        if(not word_position==[]):
+            print(f"\033[31m>> Bruno:\033[0m The word '{user_word.lower()}' was found at the following positions: {word_position}")
+        else:
+            print("\033[31m>> Bruno:\033[0m The word was not found")
+
     elif(int(user_input)==9):
-        print(user_input)
+        print("\033[31m>> Bruno:\033[0m This chat is now over.")
     else:
         print("\033[31m>> Bruno:\033[0m No such task exist.")
-
