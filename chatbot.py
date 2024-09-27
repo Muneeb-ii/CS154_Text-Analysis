@@ -71,7 +71,19 @@ while(int(user_input)!=9):
         print(f"\033[31m>> Bruno:\033[0m The two texts are {percent_similar:.2f}% similar. The common words are:\n{intersection_set}")
         
     elif(int(user_input)==4):
-        print(user_input)
+        user_text: str = input("\033[31m>> Bruno:\033[0m Sure, I can help you search for a word in your text. Please enter the text:\n\033[32m>> User: \033[0m")
+        user_word: str = input("\033[31m>> Bruno:\033[0m Please enter the word you want to search for:\n\033[32m>> User: \033[0m")
+        characters_to_remove = ['!', ',', '.', '?', ':', ';', '-', '_']
+        translation_table = str.maketrans('', '', ''.join(characters_to_remove))
+        user_text_removed: list[str] = user_text.lower().translate(translation_table).split(" ")
+        word_position: list[int] = []
+
+        for i in range(0,len(user_text_removed)):
+            if(user_text_removed[i]==user_word.lower()):
+                word_position.append(i+1)
+            i +=1
+        print(f"\033[31m>> Bruno:\033[0m The word '{user_word.lower()}' was found at the following positions: {word_position}")
+    
     elif(int(user_input)==5):
         print(user_input)
     elif(int(user_input)==6):
