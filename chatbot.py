@@ -84,7 +84,7 @@ while(int(user_input)!=9):
         for i in range(len(user_text_removed)):
             if(user_text_removed[i]==user_word.lower()):
                 word_position.append(i+1)
-            i +=1
+    
         if(not word_position==[]):
             print(f"\033[31m>> Bruno:\033[0m The word '{user_word.lower()}' was found at the following positions: {word_position}")
         else:
@@ -109,6 +109,7 @@ while(int(user_input)!=9):
         print(f"{'Number of unique characters:':<30} {unique_char:>02}")
         print(f"{'Total number of words:':<30} {total_words:>02}")
         print(f"{'Number of unique words:':<30} {total_unique_words:>02}")  
+    
     elif(int(user_input)==6):
         user_file: str = input("\033[31m>> Bruno:\033[0m Sure, I can help you analyze the sentiment in your file. Please enter the filename:\n\033[32m>> User: \033[0m")
         user_text: str = get_file_contents(user_file)
@@ -135,6 +136,7 @@ while(int(user_input)!=9):
             print("\033[31m>> Bruno:\033[0m negative")
         elif(sentiment_average <= -0.5):
             print("\033[31m>> Bruno:\033[0m very negative")
+    
     elif(int(user_input)==7):
         user_file_1: str = input("\033[31m>> Bruno:\033[0m Sure, I can help you find similarities between two files. Please enter the filename of the first file:\n\033[32m>> User: \033[0m")
         user_text_1: str = get_file_contents(user_file_1)
@@ -169,7 +171,7 @@ while(int(user_input)!=9):
         for i in range(len(file_contents_removed)):
             if(file_contents_removed[i]==user_word.lower()):
                 word_position.append(i+1)
-            i +=1
+        
         if(not word_position==[]):
             print(f"\033[31m>> Bruno:\033[0m The word '{user_word.lower()}' was found at the following positions: {word_position}")
         else:
@@ -177,5 +179,6 @@ while(int(user_input)!=9):
 
     elif(int(user_input)==9):
         print("\033[31m>> Bruno:\033[0m This chat is now over.")
+    
     else:
         print("\033[31m>> Bruno:\033[0m No such task exist.")
