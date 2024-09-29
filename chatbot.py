@@ -87,8 +87,25 @@ while(int(user_input)!=9):
         else:
             print("\033[31m>> Bruno:\033[0m The word was not found")
 
-    elif(int(user_input)==5):     
-        print(user_input)   
+    elif(int(user_input)==5):
+        user_file: str = input("\033[31m>> Bruno:\033[0m Sure, I can help you analyze the text in your file. What is your text? Please enter the filename:\n\033[32m>> User: \033[0m")
+        user_text: str = get_file_contents(user_file)
+        total_char: int  = len(user_text)
+        unique_char_set: set[str] = set()
+        word_list: list[str] = user_text.lower().split(" ")
+        unique_word_set: set[str] = set(word_list)
+        
+        for each_char in user_text:
+            unique_char_set.add(each_char.lower())
+        
+        unique_char: int = len(unique_char_set)
+        total_words: int = len(word_list)
+        total_unique_words: int = len(unique_word_set)
+        print("\033[31m>> Bruno:\033[0m Here is the analysis\n")
+        print(f"{'Total number of characters:':<30} {total_char:>02}")
+        print(f"{'Number of unique characters:':<30} {unique_char:>02}")
+        print(f"{'Total number of words:':<30} {total_words:>02}")
+        print(f"{'Number of unique words:':<30} {total_unique_words:>02}\n")  
     elif(int(user_input)==6):
         print(user_input)
     elif(int(user_input)==7):
