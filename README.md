@@ -7,7 +7,14 @@ Muneeb Azfar Nafees
 
 ### Introspection
 
-_Describe the challenges you faced and what you learned_
+**Challenges Faced:**
+1. _Project Simplicity_: The overall project was relatively straightforward. However, there were a few elements I wasn’t familiar with, such as using the `str.translate` function, for which I referred to resources for assistance.
+2. _Formatting Issues_: The most challenging part of the project was formatting the text, particularly for the first and fifth menu options. This process was time-consuming and required multiple adjustments to get it right.
+
+**Lessons:**
+1. _Resource Utilization_: When faced with unfamiliar functions or approaches, I effectively used external resources to learn and apply them.
+2. _Patience with Formatting_: I learned the importance of being patient and thorough with formatting, as even small errors can lead to significant time delays.
+
 
 ### Resources
 
