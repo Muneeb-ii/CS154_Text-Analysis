@@ -25,7 +25,7 @@ while(int(user_input)!=9):
         print(f"{'Total number of characters:':<30} {total_char:>02}")
         print(f"{'Number of unique characters:':<30} {unique_char:>02}")
         print(f"{'Total number of words:':<30} {total_words:>02}")
-        print(f"{'Number of unique words:':<30} {total_unique_words:>02}\n")
+        print(f"{'Number of unique words:':<30} {total_unique_words:>02}")
 
     elif(int(user_input)==2):
         user_text: str = input("\033[31m>> Bruno:\033[0m Sure, I can help you analyze the sentiment in your text. What is your text?\n\033[32m>> User: \033[0m")
@@ -39,19 +39,19 @@ while(int(user_input)!=9):
         sentiment_average = sentiment_counter/text_length
         
         if(sentiment_average == 0):
-            print("\033[31m>> Bruno:\033[0m neutral\n")
+            print("\033[31m>> Bruno:\033[0m neutral")
         elif(sentiment_average > 0 and sentiment_average < 0.25):
-            print("\033[31m>> Bruno:\033[0m somewhat positive\n")
+            print("\033[31m>> Bruno:\033[0m somewhat positive")
         elif(sentiment_average > 0.25 and sentiment_average < 0.5):
-            print("\033[31m>> Bruno:\033[0m positive\n")
+            print("\033[31m>> Bruno:\033[0m positive")
         elif(sentiment_average >= 0.5):
-            print("\033[31m>> Bruno:\033[0m very positive\n")
+            print("\033[31m>> Bruno:\033[0m very positive")
         elif(sentiment_average < 0 and sentiment_average > -0.25):
-            print("\033[31m>> Bruno:\033[0m somewhat negative\n")
+            print("\033[31m>> Bruno:\033[0m somewhat negative")
         elif(sentiment_average < -0.25 and sentiment_average > -0.5):
-            print("\033[31m>> Bruno:\033[0m negative\n")
+            print("\033[31m>> Bruno:\033[0m negative")
         elif(sentiment_average <= -0.5):
-            print("\033[31m>> Bruno:\033[0m very negative\n")
+            print("\033[31m>> Bruno:\033[0m very negative")
         
     elif(int(user_input)==3):
         user_text_1: str = input("\033[31m>> Bruno:\033[0m Sure, I can help you find similarities between two texts. Please enter the first text.\n\033[32m>> User: \033[0m")
@@ -68,8 +68,11 @@ while(int(user_input)!=9):
 
         percent_similar: int = len(intersection_set)*100/len(union_set)
 
-        print(f"\033[31m>> Bruno:\033[0m The two texts are {percent_similar:.2f}% similar. The common words are:\n{intersection_set}")
-        
+        if(round(percent_similar) == 0):
+            print(f"\033[31m>> Bruno:\033[0m The two texts are {percent_similar:.2f}% similar. There are no common words")
+        else:
+            print(f"\033[31m>> Bruno:\033[0m The two texts are {percent_similar:.2f}% similar. The common words are:\n{intersection_set}")
+
     elif(int(user_input)==4):
         user_text: str = input("\033[31m>> Bruno:\033[0m Sure, I can help you search for a word in your text. Please enter the text:\n\033[32m>> User: \033[0m")
         user_word: str = input("\033[31m>> Bruno:\033[0m Please enter the word you want to search for:\n\033[32m>> User: \033[0m")
@@ -105,11 +108,55 @@ while(int(user_input)!=9):
         print(f"{'Total number of characters:':<30} {total_char:>02}")
         print(f"{'Number of unique characters:':<30} {unique_char:>02}")
         print(f"{'Total number of words:':<30} {total_words:>02}")
-        print(f"{'Number of unique words:':<30} {total_unique_words:>02}\n")  
+        print(f"{'Number of unique words:':<30} {total_unique_words:>02}")  
     elif(int(user_input)==6):
-        print(user_input)
+        user_file: str = input("\033[31m>> Bruno:\033[0m Sure, I can help you analyze the sentiment in your file. Please enter the filename:\n\033[32m>> User: \033[0m")
+        user_text: str = get_file_contents(user_file)
+        word_list: list[str] = user_text.lower().split(" ")
+        text_length: int = len(word_list)
+        sentiment_counter: int = 0
+        
+        for each_word in word_list:
+            sentiment_counter: int = sentiment_counter + sentiment.get(each_word, 0)
+        
+        sentiment_average = sentiment_counter/text_length
+        
+        if(sentiment_average == 0):
+            print("\033[31m>> Bruno:\033[0m neutral")
+        elif(sentiment_average > 0 and sentiment_average < 0.25):
+            print("\033[31m>> Bruno:\033[0m somewhat positive")
+        elif(sentiment_average > 0.25 and sentiment_average < 0.5):
+            print("\033[31m>> Bruno:\033[0m positive")
+        elif(sentiment_average >= 0.5):
+            print("\033[31m>> Bruno:\033[0m very positive")
+        elif(sentiment_average < 0 and sentiment_average > -0.25):
+            print("\033[31m>> Bruno:\033[0m somewhat negative")
+        elif(sentiment_average < -0.25 and sentiment_average > -0.5):
+            print("\033[31m>> Bruno:\033[0m negative")
+        elif(sentiment_average <= -0.5):
+            print("\033[31m>> Bruno:\033[0m very negative")
     elif(int(user_input)==7):
-        print(user_input)
+        user_file_1: str = input("\033[31m>> Bruno:\033[0m Sure, I can help you find similarities between two files. Please enter the filename of the first file:\n\033[32m>> User: \033[0m")
+        user_text_1: str = get_file_contents(user_file_1)
+        user_file_2: str = input("\033[31m>> Bruno:\033[0m Please enter the filename of the second file.\n\033[32m>> User: \033[0m")
+        user_text_2: str = get_file_contents(user_file_2)
+        characters_to_remove = ['!', ',', '.', '?', ':', ';', '-', '_']
+        translation_table = str.maketrans('', '', ''.join(characters_to_remove))
+        user_text_1_removed: list[str] = user_text_1.lower().translate(translation_table).split(" ")
+        user_text_1_set: set[str] = set(user_text_1_removed)
+        user_text_2_removed: list[str] = user_text_2.lower().translate(translation_table).split(" ")
+        user_text_2_set: set[str] = set(user_text_2_removed)
+
+        intersection_set: set[str] = user_text_1_set.intersection(user_text_2_set)
+        union_set: set[str] = user_text_1_set.union(user_text_2_set)
+
+        percent_similar: int = len(intersection_set)*100/len(union_set)
+        
+        if(round(percent_similar) == 0):
+            print(f"\033[31m>> Bruno:\033[0m The two texts are {percent_similar:.2f}% similar. There are no common words")
+        else:
+            print(f"\033[31m>> Bruno:\033[0m The two texts are {percent_similar:.2f}% similar. The common words are:\n{intersection_set}")
+
     elif(int(user_input)==8):
         user_file: str = input("\033[31m>> Bruno:\033[0m Sure, I can help you search for a word in a file. Please enter the filename:\n\033[32m>> User: \033[0m")
         file_contents: str = get_file_contents(user_file)
