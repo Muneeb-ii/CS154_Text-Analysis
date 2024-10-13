@@ -329,3 +329,15 @@ Note that output of the chatbot is strongly formatted. Whenever user provides an
 * Run your code multiple times and vary the inputs to ensure it works as intended. 
 
 ## Feedback
+- [10] Analyze text
+- [15] Analyze sentiment in text
+- [15] Find similarities between texts
+- [15] Search for a word in texts
+- [5] Analyze file
+- [10] Analyze sentiment in a file
+- [10] Find similarities between files
+- [9] Search for a word in file
+- [5] Endless interaction
+- [5] Formatted output
+- Project 3: 99 points
+- Feedback: Amazing job with the project! The point off is in option #8, you do not account for word at beginning of new line such as 'it' (13rd word) in sample4.txt. Besides, keep up the good work!
